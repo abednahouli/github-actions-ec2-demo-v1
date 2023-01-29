@@ -21,6 +21,7 @@ jobs:
             echo Installing Node 16...
             curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
             sudo apt install -y nodejs
+            sudo apt install npm
             cd /var/www/html/github-actions-ec2-demo
             npm ci
             npm run build
