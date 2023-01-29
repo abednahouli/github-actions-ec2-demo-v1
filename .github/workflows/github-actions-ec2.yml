@@ -19,7 +19,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html/github-actions-ec2-demo
-            yarn/npm install
-            yarn/npm build
-            yarn/npm i serve
-            serve -p 3000 build/
+            npm ci
+            npm run build
