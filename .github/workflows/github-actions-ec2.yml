@@ -13,15 +13,7 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
-      - run: git pull origin master
 
-      - name: Deploy to Server 1
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
   build:
     name: Build
     needs: source
@@ -40,8 +32,8 @@ jobs:
             sudo apt install -y npm
             cd /var/www/html/github-actions-ec2-demo
             npm ci
-            sudo rm -r -f build/
             npm run build
+
   deploy:
     name: Deploy
     needs: build
@@ -55,5 +47,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html/github-actions-ec2-demo
-            sudo rm -r -f /var/www/herstopia
             sudo cp -a /var/www/html/github-actions-ec2-demo/build /var/www/herstopia

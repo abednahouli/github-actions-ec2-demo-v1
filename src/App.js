@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Welcome to Herstopia!!</p>
-        <p> user ID: {x}-cicd</p>
+        <p> user ID: ci-{x}-cd</p>
       </header>
     </div>
   );
