@@ -53,4 +53,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html/github-actions-ec2-demo
-            cp -a /var/www/html/github-actions-ec2-demo/build /var/www/herstopia
+            sudo cp -a /var/www/html/github-actions-ec2-demo/build /var/www/herstopia
