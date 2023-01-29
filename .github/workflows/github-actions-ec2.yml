@@ -23,6 +23,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
   build:
     name: Build
+    needs: source
     runs-on: ubuntu-latest
     steps:
       - name: Executing remote ssh commands using ssh key
@@ -41,6 +42,7 @@ jobs:
             npm run build
   deploy:
     name: Deploy
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Executing remote ssh commands using ssh key
