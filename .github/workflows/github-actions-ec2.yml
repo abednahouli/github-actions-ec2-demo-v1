@@ -39,6 +39,7 @@ jobs:
             sudo apt install -y npm
             cd /var/www/html/github-actions-ec2-demo
             npm ci
+            sudo rm -r -f build/
             npm run build
   deploy:
     name: Deploy
@@ -53,4 +54,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html/github-actions-ec2-demo
+            sudo rm -r -f /var/www/herstopia
             sudo cp -a /var/www/html/github-actions-ec2-demo/build /var/www/herstopia
