@@ -18,12 +18,12 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            echo Pull latest code...
-            sudo git pull
             echo Installing Node 16...
             curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
             sudo apt install -y nodejs
             sudo apt install -y npm
             cd /var/www/html/github-actions-ec2-demo
+            echo Pull latest code...
+            sudo git pull
             npm ci
             npm run build
