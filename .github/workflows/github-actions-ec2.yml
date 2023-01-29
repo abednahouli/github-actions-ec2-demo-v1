@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
-        run: git pull origin master
+          run: git pull origin master
 
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
