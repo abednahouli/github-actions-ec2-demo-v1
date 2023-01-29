@@ -39,3 +39,16 @@ jobs:
             cd /var/www/html/github-actions-ec2-demo
             npm ci
             npm run build
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /var/www/html/github-actions-ec2-demo
+            cp -a /var/www/html/github-actions-ec2-demo/build /var/www/herstopia
