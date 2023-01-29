@@ -11,6 +11,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
@@ -23,7 +24,5 @@ jobs:
             sudo apt install -y nodejs
             sudo apt install -y npm
             cd /var/www/html/github-actions-ec2-demo
-            git remote set-url origin git@github.com:abednahouli/github-actions-ec2-demo-v1.git
-            sudo git pull
             npm ci
             npm run build
