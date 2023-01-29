@@ -23,6 +23,7 @@ jobs:
             sudo apt install -y nodejs
             sudo apt install -y npm
             cd /var/www/html/github-actions-ec2-demo
+            git remote set-url origin git@github.com:abednahouli/github-actions-ec2-demo-v1.git
             sudo git pull
             npm ci
             npm run build
